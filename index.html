@@ -1,0 +1,3230 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ecole Le Printemps — Administration</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   APPLICATION
+===================================================== */
+
+.app{
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+
+    width:250px;
+    height:100vh;
+
+    flex-shrink:0;
+
+    background:
+    linear-gradient(
+        180deg,
+        #092844 0%,
+        #0a3558 55%,
+        #073149 100%
+    );
+
+    color:white;
+
+    padding:24px 16px;
+
+    display:flex;
+    flex-direction:column;
+
+    position:relative;
+    z-index:20;
+
+    overflow-y:auto;
+}
+
+
+/* LOGO */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:5px 8px 25px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.09);
+}
+
+.logo-icon{
+
+    width:44px;
+    height:44px;
+
+    flex-shrink:0;
+
+    border-radius:13px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #24d2ad,
+        #25aef2
+    );
+
+    box-shadow:
+    0 8px 22px rgba(25,205,178,.22);
+}
+
+.logo-icon i{
+    font-size:19px;
+}
+
+.logo-text strong{
+
+    display:block;
+
+    font-size:13px;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.logo-text span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:8px;
+
+    color:
+    rgba(255,255,255,.45);
+
+    letter-spacing:.5px;
+}
+
+
+/* NAV TITLE */
+
+.nav-title{
+
+    margin:
+    27px 10px 10px;
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    color:
+    rgba(255,255,255,.34);
+}
+
+
+/* NAV BUTTON */
+
+.nav-link{
+
+    width:100%;
+
+    border:0;
+    outline:none;
+
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    padding:
+    12px 13px;
+
+    margin-bottom:5px;
+
+    border-radius:11px;
+
+    background:transparent;
+
+    color:
+    rgba(255,255,255,.65);
+
+    font-family:inherit;
+
+    font-size:11px;
+    font-weight:500;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+.nav-link i{
+
+    width:20px;
+
+    text-align:center;
+
+    font-size:14px;
+}
+
+.nav-link:hover{
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.08);
+
+    transform:
+    translateX(3px);
+}
+
+.nav-link.active{
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(35,214,177,.18),
+        rgba(41,169,235,.10)
+    );
+
+    border:
+    1px solid rgba(55,220,194,.13);
+
+    box-shadow:
+    inset 3px 0 0 #28d2ae;
+}
+
+
+/* =====================================================
+   EPLP V2
+===================================================== */
+
+.eplp-v2-btn{
+
+    color:#ffffff !important;
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    ) !important;
+
+    border:
+    1px solid rgba(255,255,255,.12) !important;
+
+    box-shadow:
+    0 8px 20px rgba(34,197,94,.22);
+
+    font-weight:700;
+
+    margin-top:5px;
+}
+
+.eplp-v2-btn i{
+    color:#ffffff;
+}
+
+.eplp-v2-btn:hover{
+
+    color:#ffffff !important;
+
+    background:
+    linear-gradient(
+        135deg,
+        #15803d,
+        #16a34a
+    ) !important;
+
+    transform:
+    translateX(3px);
+
+    box-shadow:
+    0 10px 25px rgba(34,197,94,.30);
+}
+
+.eplp-v2-btn i{
+    transition:
+    transform .25s ease;
+}
+
+.eplp-v2-btn:hover i{
+    transform:
+    scale(1.12);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom{
+
+    margin-top:auto;
+
+    padding-top:18px;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+.security{
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    padding:9px;
+
+    font-size:9px;
+
+    color:
+    rgba(255,255,255,.42);
+}
+
+.security i{
+    color:#39dba7;
+}
+
+
+/* =====================================================
+   ZONE PRINCIPALE
+===================================================== */
+
+.main{
+
+    flex:1;
+
+    height:100vh;
+
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#f5f7fa;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar{
+
+    height:72px;
+
+    flex-shrink:0;
+
+    background:white;
+
+    border-bottom:
+    1px solid #e7ebf0;
+
+    padding:
+    0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.top-left{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+}
+
+.mobile-menu{
+
+    display:none;
+
+    width:38px;
+    height:38px;
+
+    border:0;
+    border-radius:10px;
+
+    background:#eef4f7;
+
+    color:#173653;
+
+    cursor:pointer;
+}
+
+.top-title h2{
+
+    font-size:17px;
+    font-weight:800;
+
+    color:#172033;
+}
+
+.top-title p{
+
+    margin-top:3px;
+
+    font-size:9px;
+
+    color:#929cad;
+}
+
+
+.datetime{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    9px 13px;
+
+    border:
+    1px solid #e6ebf0;
+
+    border-radius:10px;
+
+    background:#fafbfd;
+
+    color:#6d7789;
+
+    font-size:9px;
+}
+
+.datetime i{
+    color:#12b99b;
+}
+
+
+/* =====================================================
+   WORKSPACE
+===================================================== */
+
+.workspace{
+
+    flex:1;
+
+    min-height:0;
+
+    padding:20px;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   AGENDA
+===================================================== */
+
+#homePage{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    padding:0;
+}
+
+.calendar-wrap{
+
+    width:100%;
+    height:100%;
+
+    background:#fff;
+
+    border:
+    1px solid #e4e9ef;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:
+    0 8px 25px rgba(30,52,80,.05);
+}
+
+
+/* =====================================================
+   TOOLBAR AGENDA
+===================================================== */
+
+.calendar-toolbar{
+
+    min-height:66px;
+
+    padding:0 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    border-bottom:
+    1px solid #e7ebef;
+
+    background:#fff;
+}
+
+.calendar-left,
+.calendar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.calendar-title{
+    min-width:190px;
+}
+
+.calendar-title h2{
+
+    font-size:18px;
+
+    font-weight:800;
+
+    color:#172033;
+
+    text-transform:capitalize;
+}
+
+.calendar-title span{
+
+    display:block;
+
+    margin-top:3px;
+
+    font-size:9px;
+
+    color:#929cad;
+}
+
+.calendar-btn{
+
+    height:34px;
+
+    padding:0 12px;
+
+    border:
+    1px solid #e3e8ee;
+
+    border-radius:9px;
+
+    background:#fff;
+
+    color:#4c596b;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.calendar-btn:hover{
+
+    background:#f3f8fa;
+
+    border-color:#cbdde2;
+}
+
+.calendar-btn.icon{
+
+    width:34px;
+    padding:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.calendar-btn.today{
+
+    color:#0c9f89;
+
+    border-color:#bce8df;
+
+    background:#effaf7;
+}
+
+.calendar-btn.add{
+
+    border:0;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #11b99c,
+        #159ed1
+    );
+
+    box-shadow:
+    0 5px 15px rgba(17,185,156,.18);
+}
+
+.calendar-btn.add:hover{
+    transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   CALENDRIER
+===================================================== */
+
+.calendar-grid{
+
+    flex:1;
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    grid-template-rows:
+    38px repeat(6,1fr);
+
+    overflow:hidden;
+}
+
+.weekday{
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:10px;
+
+    border-right:
+    1px solid #edf0f3;
+
+    border-bottom:
+    1px solid #e7ebef;
+
+    color:#8d98a8;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+}
+
+.weekday:last-child{
+    border-right:0;
+}
+
+.calendar-day{
+
+    position:relative;
+
+    min-width:0;
+    min-height:75px;
+
+    padding:7px;
+
+    border-right:
+    1px solid #edf0f3;
+
+    border-bottom:
+    1px solid #edf0f3;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:
+    background .15s;
+}
+
+.calendar-day:nth-child(7n){
+    border-right:0;
+}
+
+.calendar-day:hover{
+    background:#fafcfd;
+}
+
+.calendar-day.other-month{
+    background:#fafbfc;
+}
+
+.calendar-day.other-month .day-number{
+    color:#b7bec8;
+}
+
+.day-number{
+
+    width:25px;
+    height:25px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:3px;
+
+    border-radius:50%;
+
+    color:#39465a;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.calendar-day.today .day-number{
+
+    background:#10ad94;
+
+    color:#fff;
+
+    box-shadow:
+    0 3px 8px rgba(16,173,148,.22);
+}
+
+
+/* =====================================================
+   EVENEMENTS / TACHES
+===================================================== */
+
+.event{
+
+    display:block;
+
+    width:100%;
+
+    margin:2px 0;
+
+    padding:4px 6px;
+
+    border-radius:5px;
+
+    background:#e9f8f5;
+
+    border-left:
+    3px solid #10ad94;
+
+    color:#176c60;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    cursor:pointer;
+
+    transition:.15s;
+}
+
+.event:hover{
+    transform:translateX(2px);
+    filter:brightness(.97);
+}
+
+.event.blue{
+
+    background:#eaf4fb;
+
+    border-left-color:#269fd5;
+
+    color:#1d6587;
+}
+
+.event.orange{
+
+    background:#fff4e8;
+
+    border-left-color:#f09a3e;
+
+    color:#8b5a24;
+}
+
+.event.purple{
+
+    background:#f3edfb;
+
+    border-left-color:#8b63c7;
+
+    color:#674694;
+}
+
+.event.red{
+
+    background:#fcecec;
+
+    border-left-color:#e04b4b;
+
+    color:#9b3030;
+}
+
+.event.yellow{
+
+    background:#fff9df;
+
+    border-left-color:#e3b629;
+
+    color:#826718;
+}
+
+.event.gray{
+
+    background:#eef1f4;
+
+    border-left-color:#8792a1;
+
+    color:#596474;
+}
+
+.more-events{
+
+    color:#8792a1;
+
+    font-size:7px;
+
+    padding:2px 5px;
+}
+
+
+/* =====================================================
+   APPLICATION
+===================================================== */
+
+#appPage{
+
+    width:100%;
+    height:100%;
+
+    display:none;
+
+    flex-direction:column;
+
+    background:white;
+
+    border:
+    1px solid #e4e9ef;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 25px rgba(30,52,80,.06);
+
+    position:relative;
+}
+
+
+/* =====================================================
+   APPLICATION HEADER
+===================================================== */
+
+.app-header{
+
+    height:52px;
+
+    flex-shrink:0;
+
+    padding:
+    0 15px;
+
+    background:#ffffff;
+
+    border-bottom:
+    1px solid #e7ebef;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.app-name{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:#1c2b40;
+}
+
+.app-name-icon{
+
+    width:30px;
+    height:30px;
+
+    border-radius:9px;
+
+    background:#eaf8f5;
+
+    color:#10a990;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.close-app{
+
+    border:0;
+
+    width:31px;
+    height:31px;
+
+    border-radius:9px;
+
+    background:#f3f6f8;
+
+    color:#7b8798;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.close-app:hover{
+
+    background:#feecec;
+
+    color:#e04b4b;
+}
+
+
+/* =====================================================
+   IFRAME
+===================================================== */
+
+#appFrame{
+
+    width:100%;
+
+    height:calc(100% - 52px);
+
+    border:0;
+
+    display:block;
+
+    background:#f8fafc;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    position:absolute;
+
+    inset:52px 0 0 0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    rgba(255,255,255,.88);
+
+    z-index:5;
+}
+
+.loading-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#718096;
+
+    font-size:10px;
+}
+
+.spinner{
+
+    width:30px;
+    height:30px;
+
+    border:
+    3px solid #e5edf0;
+
+    border-top-color:#13b99c;
+
+    border-radius:50%;
+
+    animation:
+    spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   MODALE EVENEMENT
+===================================================== */
+
+.event-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+    rgba(8,30,49,.42);
+
+    backdrop-filter:
+    blur(3px);
+
+    z-index:100;
+}
+
+.event-modal.show{
+    display:flex;
+}
+
+.modal-card{
+
+    width:
+    min(430px,calc(100% - 30px));
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 25px 70px rgba(10,34,55,.25);
+
+    overflow:hidden;
+}
+
+.modal-head{
+
+    padding:
+    17px 19px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:
+    1px solid #edf0f3;
+}
+
+.modal-head h3{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:#172033;
+}
+
+.modal-close{
+
+    width:30px;
+    height:30px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#f3f6f8;
+
+    color:#7b8798;
+
+    cursor:pointer;
+}
+
+.modal-body{
+    padding:18px;
+}
+
+.form-group{
+    margin-bottom:13px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    color:#697587;
+}
+
+.form-group input,
+.form-group select{
+
+    width:100%;
+
+    height:38px;
+
+    padding:0 11px;
+
+    border:
+    1px solid #e0e6eb;
+
+    border-radius:9px;
+
+    outline:none;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    color:#263348;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+
+    border-color:#74cdbf;
+
+    box-shadow:
+    0 0 0 3px rgba(16,173,148,.08);
+}
+
+.modal-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+    margin-top:17px;
+}
+
+.modal-actions-left,
+.modal-actions-right{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.modal-actions button{
+
+    height:36px;
+
+    padding:0 14px;
+
+    border-radius:9px;
+
+    border:
+    1px solid #e0e6eb;
+
+    background:#fff;
+
+    color:#596578;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.modal-actions .save{
+
+    border:0;
+
+    color:#fff;
+
+    background:#10ad94;
+}
+
+.modal-actions .delete{
+
+    border:0;
+
+    color:#fff;
+
+    background:#e04b4b;
+}
+
+.modal-actions .delete:hover{
+    background:#c93636;
+}
+
+.modal-actions .save:hover{
+    background:#0b9d87;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:750px){
+
+    body{
+        overflow:auto;
+    }
+
+    .app{
+        min-height:100vh;
+    }
+
+    .sidebar{
+
+        width:70px;
+
+        padding:
+        20px 9px;
+    }
+
+    .logo{
+
+        justify-content:center;
+
+        padding:
+        5px 0 20px;
+    }
+
+    .logo-text,
+    .nav-title,
+    .nav-link span,
+    .security span{
+
+        display:none;
+    }
+
+    .logo-icon{
+
+        width:42px;
+        height:42px;
+    }
+
+    .nav-link{
+
+        justify-content:center;
+
+        padding:
+        13px 5px;
+    }
+
+    .nav-link i{
+        width:auto;
+    }
+
+    .main{
+
+        width:
+        calc(100% - 70px);
+
+        min-width:0;
+    }
+
+    .topbar{
+
+        padding:
+        0 15px;
+    }
+
+    .mobile-menu{
+        display:none;
+    }
+
+    .top-title h2{
+        font-size:15px;
+    }
+
+    .workspace{
+        padding:12px;
+    }
+
+    .calendar-toolbar{
+
+        padding:
+        0 10px;
+
+        min-height:60px;
+    }
+
+    .calendar-title{
+        min-width:120px;
+    }
+
+    .calendar-title h2{
+        font-size:14px;
+    }
+
+    .calendar-title span{
+        display:none;
+    }
+
+    .calendar-btn{
+        padding:
+        0 8px;
+    }
+
+    .calendar-btn.today{
+        display:none;
+    }
+
+    .calendar-btn.add span{
+        display:none;
+    }
+
+    .calendar-btn.add{
+
+        width:34px;
+
+        padding:0;
+    }
+
+    .weekday{
+
+        padding-left:5px;
+
+        font-size:7px;
+    }
+
+    .calendar-day{
+        padding:4px;
+    }
+
+    .day-number{
+
+        width:22px;
+        height:22px;
+
+        font-size:9px;
+    }
+
+    .event{
+
+        font-size:7px;
+
+        padding:
+        3px 4px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .sidebar{
+        width:58px;
+    }
+
+    .main{
+
+        width:
+        calc(100% - 58px);
+    }
+
+    .topbar{
+        height:62px;
+    }
+
+    .datetime{
+        padding:8px;
+    }
+
+    .datetime span{
+        display:none;
+    }
+
+    .workspace{
+        padding:9px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     MENU GAUCHE
+===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="logo">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-school"></i>
+
+        </div>
+
+        <div class="logo-text">
+
+            <strong>
+                ECOLE LE PRINTEMPS
+            </strong>
+
+            <span>
+                ESPACE ADMINISTRATIF
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-title">
+        Navigation
+    </div>
+
+
+    <!-- AGENDA -->
+
+    <button
+        class="nav-link active"
+        onclick="showHome(this)">
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+        <span>
+            Agenda
+        </span>
+
+    </button>
+
+
+    <!-- MOUVEMENTS -->
+
+    <button
+        class="nav-link"
+        onclick="openApplication(
+            this,
+            'Mouvements',
+            'fa-arrow-right-arrow-left',
+            'https://script.google.com/macros/s/AKfycbyM5CunB9Dq9PPDy49zc8uOwkTkS-AhLQ9rt1RAGHOZxaMCIgOYD3eYoP6P2QH6Qhew/exec'
+        )">
+
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+        <span>
+            Mouvements
+        </span>
+
+    </button>
+
+
+    <!-- RECOUVREMENT -->
+
+    <button
+        class="nav-link"
+        onclick="openApplication(
+            this,
+            'Recouvrement',
+            'fa-hand-holding-dollar',
+            'https://script.google.com/macros/s/AKfycbw-AxWZbSPkpqIqfFak0snVxBSlVxke84AWCec6QlQFJi7onN8QO5W1XYgg13OuARlw9w/exec'
+        )">
+
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+
+        <span>
+            Recouvrement
+        </span>
+
+    </button>
+
+
+    <!-- TDB FINANCIER -->
+
+    <button
+        class="nav-link"
+        onclick="openApplication(
+            this,
+            'TDB financier',
+            'fa-chart-line',
+            'https://script.google.com/macros/s/AKfycbyU4SVNLJLXKF5z_jR8tDI58KEOqC03j2R3s8KL49FdHuPxS6LjKwDXW7SYnx2S-Mw/exec'
+        )">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <span>
+            TDB financier
+        </span>
+
+    </button>
+
+
+    <!-- SALAIRE PERSONNELS -->
+
+    <button
+        class="nav-link"
+        onclick="window.open(
+            'https://docs.google.com/spreadsheets/d/1Mu8tdZVlIIUlIrcTR06gxWg6AWSzW9Ikb1bwjYjmJN4/edit?gid=0#gid=0',
+            '_blank',
+            'noopener,noreferrer'
+        )">
+
+        <i class="fa-solid fa-users"></i>
+
+        <span>
+            Salaire personnels
+        </span>
+
+    </button>
+
+
+    <!-- JOURNAL ABSENCES ET RETARDS -->
+
+    <button
+        class="nav-link"
+        onclick="openExternalTab(
+            this,
+            'https://tsuks24.github.io/JAR/'
+        )">
+
+        <i class="fa-solid fa-calendar-xmark"></i>
+
+        <span>
+            Journal absences et retards
+        </span>
+
+    </button>
+
+
+    <!-- SITUATION FINANCIERE DU MOIS -->
+
+    <button
+        class="nav-link"
+        onclick="openApplication(
+            this,
+            'Situation financier du mois',
+            'fa-money-bill-trend-up',
+            'https://script.google.com/macros/s/AKfycbw9dhZPtQzvFye-F7t6q-gFvE8c4zzqV9FeGeBOoqO4qh6P_8YKQWe_qkYdDGcnk3mt/exec'
+        )">
+
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+        <span>
+            Situation financier du mois
+        </span>
+
+    </button>
+
+
+    <!-- EPLP V2 -->
+
+    <div class="nav-title">
+        Accès principal
+    </div>
+
+
+    <button
+        class="nav-link eplp-v2-btn"
+        onclick="window.open(
+            'https://tsuks24.github.io/APPWEBV2/',
+            '_blank',
+            'noopener,noreferrer'
+        )">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <span>
+            EPLP V2
+        </span>
+
+    </button>
+
+
+    <!-- BAS SIDEBAR -->
+
+    <div class="sidebar-bottom">
+
+        <div class="security">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+                Système sécurisé
+            </span>
+
+        </div>
+
+    </div>
+
+
+</aside>
+
+
+<!-- =====================================================
+     ZONE PRINCIPALE
+===================================================== -->
+
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="top-left">
+
+            <button
+                class="mobile-menu"
+                onclick="showHome()">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="top-title">
+
+                <h2 id="pageTitle">
+                    Agenda
+                </h2>
+
+                <p id="pageSubtitle">
+                    Planifiez et suivez vos activités
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="datetime">
+
+            <i class="fa-regular fa-clock"></i>
+
+            <span id="datetime">
+                Chargement...
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         ESPACE DE TRAVAIL
+    ===================================================== -->
+
+    <div class="workspace">
+
+
+        <!-- =================================================
+             AGENDA
+        ================================================= -->
+
+        <section id="homePage">
+
+            <div class="calendar-wrap">
+
+
+                <div class="calendar-toolbar">
+
+
+                    <div class="calendar-left">
+
+
+                        <button
+                            class="calendar-btn today"
+                            onclick="goToday()">
+
+                            Aujourd'hui
+
+                        </button>
+
+
+                        <button
+                            class="calendar-btn icon"
+                            onclick="changeMonth(-1)"
+                            title="Mois précédent">
+
+                            <i class="fa-solid fa-chevron-left"></i>
+
+                        </button>
+
+
+                        <button
+                            class="calendar-btn icon"
+                            onclick="changeMonth(1)"
+                            title="Mois suivant">
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+
+                        <div class="calendar-title">
+
+                            <h2 id="calendarMonth">
+                                Agenda
+                            </h2>
+
+                            <span id="calendarSubtitle">
+                                Votre planning
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="calendar-right">
+
+                        <button
+                            class="calendar-btn add"
+                            onclick="openEventModal()">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            <span>
+                                &nbsp;Créer
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    class="calendar-grid"
+                    id="calendarGrid">
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICATION DANS IFRAME
+        ================================================= -->
+
+        <section id="appPage">
+
+
+            <div class="app-header">
+
+
+                <div class="app-name">
+
+                    <div class="app-name-icon">
+
+                        <i
+                            id="appIcon"
+                            class="fa-solid fa-chart-line">
+                        </i>
+
+                    </div>
+
+
+                    <span id="appName">
+                        Application
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="close-app"
+                    onclick="showHome()"
+                    title="Retour à l'accueil">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="loading"
+                class="loading">
+
+                <div class="loading-box">
+
+                    <div class="spinner"></div>
+
+                    <span>
+                        Chargement de l'application...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <iframe
+                id="appFrame"
+                src=""
+                title="Application">
+
+            </iframe>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     MODALE EVENEMENT
+===================================================== -->
+
+<div
+    class="event-modal"
+    id="eventModal"
+    onclick="closeEventModal(event)">
+
+
+    <div
+        class="modal-card"
+        onclick="event.stopPropagation()">
+
+
+        <div class="modal-head">
+
+            <h3 id="modalTitle">
+
+                <i class="fa-solid fa-calendar-plus"></i>
+
+                Nouvel événement
+
+            </h3>
+
+
+            <button
+                class="modal-close"
+                onclick="closeEventModal()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <div class="form-group">
+
+                <label for="eventTitle">
+                    Titre
+                </label>
+
+                <input
+                    id="eventTitle"
+                    type="text"
+                    placeholder="Ex. Réunion des enseignants">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="eventDate">
+                    Date
+                </label>
+
+                <input
+                    id="eventDate"
+                    type="date">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="eventTime">
+                    Heure
+                </label>
+
+                <input
+                    id="eventTime"
+                    type="time">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="eventColor">
+                    Couleur de la tâche
+                </label>
+
+                <select id="eventColor">
+
+                    <option value="">
+                        🟢 Vert — Général
+                    </option>
+
+                    <option value="blue">
+                        🔵 Bleu — Réunion / administratif
+                    </option>
+
+                    <option value="orange">
+                        🟠 Orange — Important
+                    </option>
+
+                    <option value="purple">
+                        🟣 Violet — École / pédagogique
+                    </option>
+
+                    <option value="red">
+                        🔴 Rouge — Urgent
+                    </option>
+
+                    <option value="yellow">
+                        🟡 Jaune — À suivre
+                    </option>
+
+                    <option value="gray">
+                        ⚪ Gris — Autre
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+
+                <div class="modal-actions-left">
+
+                    <button
+                        id="deleteEventBtn"
+                        class="delete"
+                        style="display:none;"
+                        onclick="deleteCurrentEvent()">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Supprimer
+
+                    </button>
+
+                </div>
+
+
+                <div class="modal-actions-right">
+
+                    <button
+                        onclick="closeEventModal()">
+
+                        Annuler
+
+                    </button>
+
+
+                    <button
+                        class="save"
+                        onclick="saveEvent()">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Enregistrer
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DATE ET HEURE
+===================================================== */
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    const date =
+        now.toLocaleDateString(
+            "fr-FR",
+            {
+                weekday:"long",
+                day:"2-digit",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+    const time =
+        now.toLocaleTimeString(
+            "fr-FR",
+            {
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit"
+            }
+        );
+
+    const capitalized =
+        date.charAt(0).toUpperCase()
+        +
+        date.slice(1);
+
+    document.getElementById(
+        "datetime"
+    ).textContent =
+        capitalized
+        +
+        " • "
+        +
+        time;
+}
+
+updateDateTime();
+
+setInterval(
+    updateDateTime,
+    1000
+);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const homePage =
+    document.getElementById("homePage");
+
+const appPage =
+    document.getElementById("appPage");
+
+const appFrame =
+    document.getElementById("appFrame");
+
+const appName =
+    document.getElementById("appName");
+
+const appIcon =
+    document.getElementById("appIcon");
+
+const loading =
+    document.getElementById("loading");
+
+const pageTitle =
+    document.getElementById("pageTitle");
+
+const pageSubtitle =
+    document.getElementById("pageSubtitle");
+
+const eventModal =
+    document.getElementById("eventModal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const deleteEventBtn =
+    document.getElementById("deleteEventBtn");
+
+
+/* =====================================================
+   MENU ACTIF
+===================================================== */
+
+function setActiveMenu(element){
+
+    document
+        .querySelectorAll(".nav-link")
+        .forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+    if(element){
+        element.classList.add("active");
+    }
+
+}
+
+
+/* =====================================================
+   OUVRIR LIEN EXTERNE
+   Utilisé uniquement pour :
+   - Salaire personnels
+   - Journal absences et retards
+   - EPLP V2
+===================================================== */
+
+function openExternalTab(
+    element,
+    url
+){
+
+    setActiveMenu(element);
+
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+/* =====================================================
+   OUVRIR APPLICATION DANS IFRAME
+===================================================== */
+
+function openApplication(
+    element,
+    name,
+    icon,
+    url
+){
+
+    setActiveMenu(element);
+
+    homePage.style.display =
+        "none";
+
+    appPage.style.display =
+        "flex";
+
+    appName.textContent =
+        name;
+
+    appIcon.className =
+        "fa-solid "
+        +
+        icon;
+
+    pageTitle.textContent =
+        name;
+
+    pageSubtitle.textContent =
+        "Application ouverte dans votre espace de travail";
+
+    loading.style.display =
+        "flex";
+
+    appFrame.src =
+        "";
+
+    setTimeout(function(){
+
+        appFrame.src =
+            url;
+
+    },50);
+
+
+    appFrame.onload =
+        function(){
+
+            loading.style.display =
+                "none";
+
+        };
+
+
+    appFrame.onerror =
+        function(){
+
+            loading.style.display =
+                "none";
+
+        };
+
+}
+
+
+/* =====================================================
+   OUVRIR APPLICATION PAR CARTE
+===================================================== */
+
+function openApplicationByCard(
+    card,
+    name,
+    icon,
+    url
+){
+
+    const links =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+    let matchingButton =
+        null;
+
+    links.forEach(
+        function(button){
+
+            if(
+                button.innerText
+                .trim()
+                .toLowerCase()
+                ===
+                name
+                .toLowerCase()
+            ){
+
+                matchingButton =
+                    button;
+
+            }
+
+        }
+    );
+
+    openApplication(
+        matchingButton,
+        name,
+        icon,
+        url
+    );
+
+}
+
+
+/* =====================================================
+   AGENDA
+===================================================== */
+
+let currentDate =
+    new Date();
+
+
+/* =====================================================
+   EVENEMENT EN COURS DE MODIFICATION
+===================================================== */
+
+let editingEventIndex =
+    null;
+
+
+/* =====================================================
+   EVENEMENTS PAR DEFAUT
+===================================================== */
+
+const defaultEvents = [
+
+    {
+        title:"Réunion équipe",
+        date:formatDateKey(
+            new Date()
+        ),
+        time:"09:00",
+        color:""
+    },
+
+    {
+        title:"Suivi administratif",
+        date:formatDateKey(
+            new Date(
+                Date.now()
+                +
+                86400000
+            )
+        ),
+        time:"10:00",
+        color:"blue"
+    }
+
+];
+
+
+/* =====================================================
+   RECUPERER EVENEMENTS
+===================================================== */
+
+function getEvents(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "ecolePrintempsAgenda"
+            );
+
+        if(saved){
+
+            return JSON.parse(saved);
+
+        }
+
+        return defaultEvents;
+
+    }catch(e){
+
+        return defaultEvents;
+
+    }
+
+}
+
+
+/* =====================================================
+   SAUVEGARDER EVENEMENTS
+===================================================== */
+
+function saveEvents(events){
+
+    localStorage.setItem(
+        "ecolePrintempsAgenda",
+        JSON.stringify(events)
+    );
+
+}
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDateKey(date){
+
+    const y =
+        date.getFullYear();
+
+    const m =
+        String(
+            date.getMonth()+1
+        ).padStart(2,"0");
+
+    const d =
+        String(
+            date.getDate()
+        ).padStart(2,"0");
+
+    return (
+        y
+        +
+        "-"
+        +
+        m
+        +
+        "-"
+        +
+        d
+    );
+
+}
+
+
+/* =====================================================
+   NOM DU MOIS
+===================================================== */
+
+function monthName(date){
+
+    return date.toLocaleDateString(
+        "fr-FR",
+        {
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   AFFICHER CALENDRIER
+===================================================== */
+
+function renderCalendar(){
+
+    const grid =
+        document.getElementById(
+            "calendarGrid"
+        );
+
+    const title =
+        document.getElementById(
+            "calendarMonth"
+        );
+
+    title.textContent =
+        monthName(currentDate);
+
+    grid.innerHTML =
+        "";
+
+
+    const days = [
+
+        "Lun",
+        "Mar",
+        "Mer",
+        "Jeu",
+        "Ven",
+        "Sam",
+        "Dim"
+
+    ];
+
+
+    days.forEach(
+        function(day){
+
+            const el =
+                document.createElement(
+                    "div"
+                );
+
+            el.className =
+                "weekday";
+
+            el.textContent =
+                day;
+
+            grid.appendChild(
+                el
+            );
+
+        }
+    );
+
+
+    const first =
+        new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            1
+        );
+
+
+    const startDay =
+        (
+            first.getDay()
+            +
+            6
+        )
+        %
+        7;
+
+
+    const startDate =
+        new Date(first);
+
+
+    startDate.setDate(
+        1 - startDay
+    );
+
+
+    const events =
+        getEvents();
+
+
+    const todayKey =
+        formatDateKey(
+            new Date()
+        );
+
+
+    for(
+        let i=0;
+        i<42;
+        i++
+    ){
+
+        const day =
+            new Date(startDate);
+
+        day.setDate(
+            startDate.getDate()
+            +
+            i
+        );
+
+
+        const key =
+            formatDateKey(day);
+
+
+        const cell =
+            document.createElement(
+                "div"
+            );
+
+
+        cell.className =
+            "calendar-day";
+
+
+        if(
+            day.getMonth()
+            !==
+            currentDate.getMonth()
+        ){
+
+            cell.classList.add(
+                "other-month"
+            );
+
+        }
+
+
+        if(
+            key === todayKey
+        ){
+
+            cell.classList.add(
+                "today"
+            );
+
+        }
+
+
+        cell.onclick =
+            function(){
+
+                openEventModal(key);
+
+            };
+
+
+        const number =
+            document.createElement(
+                "div"
+            );
+
+
+        number.className =
+            "day-number";
+
+        number.textContent =
+            day.getDate();
+
+
+        cell.appendChild(
+            number
+        );
+
+
+        const dayEvents =
+            events.filter(
+                function(e){
+
+                    return e.date === key;
+
+                }
+            );
+
+
+        dayEvents
+            .slice(0,3)
+            .forEach(
+                function(e){
+
+                    const event =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    event.className =
+                        "event "
+                        +
+                        (
+                            e.color
+                            ||
+                            ""
+                        );
+
+
+                    event.textContent =
+                        (
+                            e.time
+                            ?
+                            e.time + " "
+                            :
+                            ""
+                        )
+                        +
+                        e.title;
+
+
+                    event.title =
+                        "Cliquer pour modifier : "
+                        +
+                        e.title;
+
+
+                    /*
+                       IMPORTANT :
+
+                       Avant, cliquer sur une tâche
+                       supprimait directement l'événement.
+
+                       Maintenant, cliquer ouvre
+                       la fenêtre de modification.
+                    */
+
+                    event.onclick =
+                        function(ev){
+
+                            ev.stopPropagation();
+
+                            const index =
+                                events.indexOf(e);
+
+                            openEditEventModal(
+                                index
+                            );
+
+                        };
+
+
+                    cell.appendChild(
+                        event
+                    );
+
+                }
+            );
+
+
+        if(
+            dayEvents.length > 3
+        ){
+
+            const more =
+                document.createElement(
+                    "div"
+                );
+
+            more.className =
+                "more-events";
+
+            more.textContent =
+                "+"
+                +
+                (
+                    dayEvents.length
+                    -
+                    3
+                )
+                +
+                " autre(s)";
+
+
+            cell.appendChild(
+                more
+            );
+
+        }
+
+
+        grid.appendChild(
+            cell
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   MOIS PRECEDENT / SUIVANT
+===================================================== */
+
+function changeMonth(amount){
+
+    currentDate.setMonth(
+        currentDate.getMonth()
+        +
+        amount
+    );
+
+    renderCalendar();
+
+}
+
+
+/* =====================================================
+   AUJOURD'HUI
+===================================================== */
+
+function goToday(){
+
+    currentDate =
+        new Date();
+
+    renderCalendar();
+
+}
+
+
+/* =====================================================
+   OUVRIR MODALE POUR CREER
+===================================================== */
+
+function openEventModal(
+    dateKey
+){
+
+    editingEventIndex =
+        null;
+
+
+    modalTitle.innerHTML =
+        '<i class="fa-solid fa-calendar-plus"></i> Nouvel événement';
+
+
+    deleteEventBtn.style.display =
+        "none";
+
+
+    document.getElementById(
+        "eventTitle"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "eventDate"
+    ).value =
+        dateKey
+        ||
+        formatDateKey(
+            new Date()
+        );
+
+
+    document.getElementById(
+        "eventTime"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "eventColor"
+    ).value =
+        "";
+
+
+    eventModal.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        function(){
+
+            document.getElementById(
+                "eventTitle"
+            ).focus();
+
+        },
+        50
+    );
+
+}
+
+
+/* =====================================================
+   OUVRIR MODALE POUR MODIFIER
+===================================================== */
+
+function openEditEventModal(
+    index
+){
+
+    const events =
+        getEvents();
+
+    const event =
+        events[index];
+
+
+    if(!event){
+        return;
+    }
+
+
+    editingEventIndex =
+        index;
+
+
+    modalTitle.innerHTML =
+        '<i class="fa-solid fa-pen-to-square"></i> Modifier la tâche';
+
+
+    deleteEventBtn.style.display =
+        "inline-flex";
+
+
+    document.getElementById(
+        "eventTitle"
+    ).value =
+        event.title
+        ||
+        "";
+
+
+    document.getElementById(
+        "eventDate"
+    ).value =
+        event.date
+        ||
+        "";
+
+
+    document.getElementById(
+        "eventTime"
+    ).value =
+        event.time
+        ||
+        "";
+
+
+    document.getElementById(
+        "eventColor"
+    ).value =
+        event.color
+        ||
+        "";
+
+
+    eventModal.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        function(){
+
+            document.getElementById(
+                "eventTitle"
+            ).focus();
+
+        },
+        50
+    );
+
+}
+
+
+/* =====================================================
+   FERMER MODALE
+===================================================== */
+
+function closeEventModal(
+    event
+){
+
+    if(
+        event
+        &&
+        event.target
+        &&
+        event.target !==
+        eventModal
+    ){
+
+        return;
+
+    }
+
+
+    eventModal.classList.remove(
+        "show"
+    );
+
+
+    editingEventIndex =
+        null;
+
+}
+
+
+/* =====================================================
+   ENREGISTRER / MODIFIER EVENEMENT
+===================================================== */
+
+function saveEvent(){
+
+    const title =
+        document.getElementById(
+            "eventTitle"
+        ).value.trim();
+
+
+    const date =
+        document.getElementById(
+            "eventDate"
+        ).value;
+
+
+    const time =
+        document.getElementById(
+            "eventTime"
+        ).value;
+
+
+    const color =
+        document.getElementById(
+            "eventColor"
+        ).value;
+
+
+    if(
+        !title
+        ||
+        !date
+    ){
+
+        alert(
+            "Veuillez renseigner au minimum le titre et la date."
+        );
+
+        return;
+
+    }
+
+
+    const events =
+        getEvents();
+
+
+    /* MODIFICATION */
+
+    if(
+        editingEventIndex !== null
+    ){
+
+        events[
+            editingEventIndex
+        ] = {
+
+            title:title,
+
+            date:date,
+
+            time:time,
+
+            color:color
+
+        };
+
+    }
+
+    /* CREATION */
+
+    else{
+
+        events.push({
+
+            title:title,
+
+            date:date,
+
+            time:time,
+
+            color:color
+
+        });
+
+    }
+
+
+    saveEvents(
+        events
+    );
+
+
+    eventModal.classList.remove(
+        "show"
+    );
+
+
+    const selected =
+        new Date(
+            date
+            +
+            "T12:00:00"
+        );
+
+
+    currentDate =
+        selected;
+
+
+    editingEventIndex =
+        null;
+
+
+    renderCalendar();
+
+}
+
+
+/* =====================================================
+   SUPPRIMER LA TACHE EN COURS
+===================================================== */
+
+function deleteCurrentEvent(){
+
+    if(
+        editingEventIndex === null
+    ){
+        return;
+    }
+
+
+    const events =
+        getEvents();
+
+    const event =
+        events[
+            editingEventIndex
+        ];
+
+
+    if(!event){
+        return;
+    }
+
+
+    const confirmation =
+        confirm(
+            "Supprimer la tâche « "
+            +
+            event.title
+            +
+            " » ?"
+        );
+
+
+    if(!confirmation){
+        return;
+    }
+
+
+    events.splice(
+        editingEventIndex,
+        1
+    );
+
+
+    saveEvents(
+        events
+    );
+
+
+    eventModal.classList.remove(
+        "show"
+    );
+
+
+    editingEventIndex =
+        null;
+
+
+    renderCalendar();
+
+}
+
+
+/* =====================================================
+   RETOUR AGENDA
+===================================================== */
+
+function showHome(
+    element
+){
+
+    homePage.style.display =
+        "block";
+
+    appPage.style.display =
+        "none";
+
+
+    appFrame.src =
+        "";
+
+
+    pageTitle.textContent =
+        "Agenda";
+
+
+    pageSubtitle.textContent =
+        "Planifiez et suivez vos activités";
+
+
+    setActiveMenu(
+        null
+    );
+
+
+    const homeButton =
+        document.querySelector(
+            ".nav-link"
+        );
+
+
+    if(homeButton){
+
+        homeButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    renderCalendar();
+
+}
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+renderCalendar();
+
+</script>
+
+
+</body>
+
+</html>
+
